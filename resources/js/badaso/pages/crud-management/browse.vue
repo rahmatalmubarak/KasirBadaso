@@ -119,7 +119,6 @@ export default {
   mounted() {
     this.getTableList();
   },
-
   methods: {
     openConfirm(id) {
       this.willDeleteId = id;

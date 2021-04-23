@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 650);
+/******/ 	return __webpack_require__(__webpack_require__.s = 647);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -288,11 +288,18 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
 
 /***/ }),
 
-/***/ 14:
+/***/ 13:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(27);
+
+/***/ }),
+
+/***/ 15:
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -480,13 +487,6 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-
-/***/ }),
-
-/***/ 15:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(27);
 
 /***/ }),
 
@@ -745,7 +745,7 @@ module.exports = Cancel;
 
 /***/ }),
 
-/***/ 202:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3371,7 +3371,7 @@ Popper.Defaults = Defaults;
 
 /***/ }),
 
-/***/ 203:
+/***/ 202:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -26518,7 +26518,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(15)))
 
 /***/ }),
 
@@ -27707,15 +27707,15 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 650:
+/***/ 647:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(651);
+module.exports = __webpack_require__(648);
 
 
 /***/ }),
 
-/***/ 651:
+/***/ 648:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -27724,7 +27724,7 @@ module.exports = __webpack_require__(651);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(652);
+__webpack_require__(649);
 
 window.Vue = __webpack_require__(10);
 
@@ -27739,7 +27739,7 @@ window.Vue = __webpack_require__(10);
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', __webpack_require__(654).default);
+Vue.component('example-component', __webpack_require__(651).default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27753,7 +27753,7 @@ var app = new Vue({
 
 /***/ }),
 
-/***/ 652:
+/***/ 649:
 /***/ (function(module, exports, __webpack_require__) {
 
 window._ = __webpack_require__(7);
@@ -27765,10 +27765,10 @@ window._ = __webpack_require__(7);
  */
 
 try {
-  window.Popper = __webpack_require__(202).default;
-  window.$ = window.jQuery = __webpack_require__(203);
+  window.Popper = __webpack_require__(201).default;
+  window.$ = window.jQuery = __webpack_require__(202);
 
-  __webpack_require__(653);
+  __webpack_require__(650);
 } catch (e) {}
 
 /**
@@ -27777,7 +27777,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(15);
+window.axios = __webpack_require__(13);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -27800,7 +27800,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ 653:
+/***/ 650:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -27809,7 +27809,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(203), __webpack_require__(202)) :
+   true ? factory(exports, __webpack_require__(202), __webpack_require__(201)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.bootstrap = {}, global.jQuery, global.Popper));
 }(this, (function (exports, $, Popper) { 'use strict';
@@ -32239,15 +32239,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ 654:
+/***/ 651:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(655)
+var __vue_script__ = __webpack_require__(652)
 /* template */
-var __vue_template__ = __webpack_require__(656)
+var __vue_template__ = __webpack_require__(653)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -32287,7 +32287,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 655:
+/***/ 652:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -32317,7 +32317,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 656:
+/***/ 653:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
