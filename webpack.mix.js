@@ -11,6 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/badaso/app.js', 'public/js/badaso.js')
+// mix.js('resources/js/badaso/app.js', 'public/js/badaso.js')
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+// Badaso
+mix
+    .js(
+        "vendor/uasoft-indonesia/badaso/src/resources/js/app.js",
+        "public/js/badaso.js"
+    )

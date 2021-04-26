@@ -10,6 +10,7 @@ use App\Product;
 use App\transaction;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\PDF;
+use Illuminate\Database\Eloquent\Collection;
 use Tymon\JWTAuth\Http\Middleware\Check;
 use Uasoft\Badaso\Models\User;
 
@@ -41,7 +42,7 @@ class TransactionController extends Controller
         ]);
         $carts = Product::where('id', $request->input('product'))->first();
         $data = [
-            'produk' => $request->input('product'),
+            'product_id' => $request->input('product'),
             'total' => $request->input('total'),
             'total_price' => $request->input('total') * $carts->capital
         ];
@@ -74,7 +75,7 @@ class TransactionController extends Controller
     public function show()
     {
         $carts = DB::table('carts')
-            ->Join('products', 'carts.produk', '=', 'products.id')
+            ->Join('products', 'carts.product_id', '=', 'products.id')
             ->select('carts.id', 'products.name', 'carts.total','carts.total_price', 'products.capital')
             ->get();
         $total_Price = DB::table('carts')->sum('total_price');
@@ -111,7 +112,7 @@ class TransactionController extends Controller
     public function deleteDetail($id)
     {
         $cart = Cart::findOrFail($id);
-        $produk = Product::where('id', $cart->produk)->first();
+        $produk = Product::where('id', $cart->product_id)->first();
         // dd($produk);
         $produk->stock = $produk->stock + $cart->total;
         $produk->save();
@@ -149,6 +150,7 @@ class TransactionController extends Controller
         
         if ($cart->isNotEmpty()) { 
         transaction::create([
+            'id' => $ids,
             'users_id' =>$customer,
             'date' => date('Y-m-d'),
             'profit' => $profit
@@ -157,7 +159,7 @@ class TransactionController extends Controller
         foreach ($cart as $key ) {
             $data = [
                 'transaction_id' => $ids,
-                'product_id' => $key->produk,
+                'product_id' => $key->product_id,
                 'total' => $key->total,
                 'total_price' => $key->total_price
             ];
@@ -179,8 +181,14 @@ class TransactionController extends Controller
 
     public function cancel()    
     {
-        $cancel = DB::table('carts')->delete();
+        $cart = Cart::all();
+        foreach ($cart as $key) {
+            $product = Product::where('id', $key['product_id'])->first();
+            $product->stock = $product->stock + $key['total'];
+            $product->save();
+        }        
 
+        DB::table('carts')->delete();
         return response()->json([
             'status' => 'success'
         ], 200);

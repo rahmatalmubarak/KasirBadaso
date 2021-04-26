@@ -33,14 +33,11 @@ return [
         ['value' => 'landingPage', 'label' => 'Landing Page'],
     ],
     'widgets' => [
-        // 'Uasoft\\Badaso\\Widgets\\UserWidget',
-        // 'Uasoft\\Badaso\\Widgets\\RoleWidget',
-        // 'Uasoft\\Badaso\\Widgets\\PermissionWidget',
-        'App\\Widgets\\TransactionWidget',
-        'App\\Widgets\\UserWidget',
-        'App\\Widgets\\ProductWidget',
-        'App\\Widgets\\SupplierWidget',
-        'App\\Widgets\\CategoryWidget',
-        'App\\Widgets\\UnitWidget'
+        'Uasoft\\Badaso\\Widgets\\CategoryWidget',
+        'Uasoft\\Badaso\\Widgets\\ProductWidget',
+        'Uasoft\\Badaso\\Widgets\\SupplierWidget',
+        'Uasoft\\Badaso\\Widgets\\TransactionWidget',
+        'Uasoft\\Badaso\\Widgets\\UnitWidget',
+        'Uasoft\\Badaso\\Widgets\\UserWidget',
     ],
 ];

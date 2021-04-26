@@ -51,6 +51,7 @@
             @input="showname()"
             v-model="idc">
             {{cname}}
+            
         </div>
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover" >
@@ -171,8 +172,12 @@ import axios from 'axios';
                     {
                         this.refreshDetail();
                     } else {
-                        alert('Error Delete Data. Check Console.');
                         console.log(response);
+                    return this.$vs.notify({
+                       title : 'Failed',
+                        Text : response.data.status,
+                        color : 'Danger',
+                      })
                     }
               })
             },
@@ -189,8 +194,12 @@ import axios from 'axios';
                         color : 'primary',
                       })
                     } else {
-                        alert('Error Delete Data. Check Console.');
                         console.log(response);
+                        return this.$vs.notify({
+                       title : 'Failed',
+                        Text : response.data.status,
+                        color : 'Danger',
+                      })
                     }
               });
             },
@@ -209,9 +218,18 @@ import axios from 'axios';
                       this.refreshDetail();
                       this.product = '',
                       this.total = ''
+                      return this.$vs.notify({
+                        title : 'Success',
+                        Text : "Delete Berhasil",
+                        color : 'primary',
+                      })
                     } else {
-                      alert(response.data.status);
-                        console.log(response);
+                      // console.log(response);
+                      return this.$vs.notify({
+                       title : 'Failed',
+                        Text : response.data.status,
+                        color : 'danger',
+                      })
                     }
               }).catch((error) => {
                     this.errors = error.response.data.errors;
@@ -241,10 +259,11 @@ import axios from 'axios';
                .then((response) => {
                 if (response.status == 200 && response.data.status == 'success')
                     {
-                     this.refreshDetail();
-                     this.idc = ''
+                      //  router.push('admin/transactions')
+                       this.showDetail();
+                       this.idc = ''
                      return this.$vs.notify({
-                        title : 'Success',
+                       title : 'Success',
                         Text : "Transaksi Berhasil",
                         color : 'primary',
                       })
